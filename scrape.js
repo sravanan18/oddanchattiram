@@ -3,10 +3,11 @@ const cheerio = require('cheerio');
 var options;
 const moment = require('moment');
 for(var i = 0; i < 600; i++) {
+  (function(i) {
   var currentDate = moment(new Date()).add(-(i), 'days').format('D-MM-YYYY');
   //console.log(currentDate);
   //currentDate = moment(new Date()).add(-1, 'days').format('D-MM-YYYY');
-  console.log(currentDate);
+  //console.log(currentDate);
   //console.log(yesterday);
   var requestUrl = "https://oddanchatramvegetablemarket.net/oddanchatram-vegetable-market-price-details-" + currentDate + "/";
   console.log(requestUrl);
@@ -37,6 +38,7 @@ for(var i = 0; i < 600; i++) {
       console.log(" No data for this date");
     }
   });
+})(i);
 }
 //.catch(function(err){
  // console.log(requestUrl + " " + " crawling failed");
