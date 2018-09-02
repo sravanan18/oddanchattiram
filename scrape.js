@@ -1,14 +1,21 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
+var options;
 const moment = require('moment');
-var todayDate = moment().format('D-MM-YYYY');
-var yesterday = moment(new Date()).add(-1, 'days').format('D-MM-YYYY');
-console.log(todayDate);
-console.log(yesterday);
-var requestUrl = "https://oddanchatramvegetablemarket.net/oddanchatram-vegetable-market-price-details-" + todayDate + "/";
+for(var i = 0; i < 600; i++) {
+var currentDate = moment(new Date()).add(-(i), 'days').format('D-MM-YYYY');
+console.log(currentDate);
+//console.log(yesterday);
+var requestUrl = "https://oddanchatramvegetablemarket.net/oddanchatram-vegetable-market-price-details-" + currentDate + "/";
 console.log(requestUrl);
-rp(requestUrl)
-  .then(function (error, response, html) {
+/*
+options = {
+  uri: requestUrl,
+  transform: function (body) {
+    return cheerio.load(body);
+  }
+};
+rp(requestUrl, function (error, response, html) {
   if (!error && response.statusCode == 200) {
     var $ = cheerio.load(html);
     var b = "";
@@ -24,7 +31,8 @@ rp(requestUrl)
        }
     });
   }
-})
-.catch(function(err){
-  console.log(requestUrl + " " + " crawling failed");
-});
+});*/
+}
+//.catch(function(err){
+ // console.log(requestUrl + " " + " crawling failed");
+//});
