@@ -2,7 +2,7 @@ const rp = require('request-promise');
 const cheerio = require('cheerio');
 var options;
 const moment = require('moment');
-for(var i = 0; i < 600; i++) {
+for(var i = 0; i < 100; i++) {
   (function(i) {
   var currentDate = moment(new Date()).add(-(i), 'days').format('D-MM-YYYY');
   //console.log(currentDate);
@@ -10,7 +10,7 @@ for(var i = 0; i < 600; i++) {
   //console.log(currentDate);
   //console.log(yesterday);
   var requestUrl = "https://oddanchatramvegetablemarket.net/oddanchatram-vegetable-market-price-details-" + currentDate + "/";
-  console.log(requestUrl);
+  //console.log(requestUrl);
   options = {
     uri: requestUrl,
     transform: function (body) {
